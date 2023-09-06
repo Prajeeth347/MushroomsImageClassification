@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushroom Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        label:hover {
+            background-color: #2980b9;
+        }
+
+        button[type="submit"] {
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #27ae60;
+        }
+        
+        .file-info {
+            margin-top: 10px;
+            display: none;
+        }
+
+        .file-info p {
+            margin: 0;
+        }
+
+        .clear-file {
+            color: #e74c3c;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mushroom Classification</h1>
+    <!-- <form action = "/success" method = "post" enctype="multipart/form-data">
+		<input type="file" name="file" />
+		<input type = "submit" value="Upload">
+	</form> -->
+    <!-- <form action="/success" method="post" enctype="multipart/form-data">
+        <label for="image">Choose an image</label>
+        <input type="file" name="file" id="image" accept="image/*" required>
+        <div class="file-info">
+            <p>Selected file: <span id="file-name"></span></p>
+            <p class="clear-file" id="clear-file">Clear</p>
+        </div>
+        <button type="submit" value='Upload'>Upload and Analyze</button>
+    </form> -->
+
+    <form action="/success" method="post" enctype="multipart/form-data">
+        <label for="image" id="choose-image-label">Choose an image</label>
+        <input type="file" name="file" id="image" accept="image/*" required>
+        <div class="file-info">
+            <p>Selected file: <span id="file-name"></span></p>
+            <p class="clear-file" id="clear-file">Clear</p>
+        </div>
+        <button type="submit" value="Upload">Upload and Analyze</button>
+    </form>
+
+    <script>
+        const fileInput = document.getElementById("image");
+        const fileInfo = document.querySelector(".file-info");
+        const fileNameSpan = document.getElementById("file-name");
+        const clearFileLink = document.getElementById("clear-file");
+        const chooseImageLabel = document.getElementById("choose-image-label");
+
+        fileInput.addEventListener("change", function () {
+            const fileName = this.files[0].name;
+            fileNameSpan.textContent = fileName;
+            fileInfo.style.display = "block";
+            chooseImageLabel.style.display = "none";
+        });
+
+        clearFileLink.addEventListener("click", function () {
+            fileInput.value = "";
+            fileNameSpan.textContent = "";
+            fileInfo.style.display = "none";
+            chooseImageLabel.style.display = "inline";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mushroom Detected</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .info-box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .species {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .edibility {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .confidence {
+            color: #f39c12;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="info-box">
+        <h2>Mushroom Detected Successfully</h2>
+        <p>Species Name: <span class="species" id="species-name">{{name}}</span></p>
+        <p>Edibility: <span class="edibility" id="edibility">{{edibility}}</span></p>
+        <p>Confidence: <span class="confidence" id="confidence">{{confidance}}</span></p>
+    </div>
+</body>
+</html>
